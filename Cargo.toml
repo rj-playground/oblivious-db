@@ -1,0 +1,29 @@
+[package]
+name = "obliviousdb"
+version = "0.1.0"
+edition = "2018"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rand = "0.8.4"
+core_simd = { git = "https://github.com/rust-lang/portable-simd" }
+
+[dev-dependencies]
+pprof = { version = "0.3", features = ["flamegraph"] }
+criterion = "0.3"
+
+[[bench]]
+name = "search_trees"
+harness = false
+debug = true
+
+[[bench]]
+name = "assumptions"
+harness = false
+debug = true
+
+[profile.bench]
+debug = true
+
+[profile.release]
+debug = true
